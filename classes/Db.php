@@ -28,11 +28,7 @@
 		public function sql ($query) {
 			$result = @mysql_query($query, $this->connection_mysql);
 			if (!$result) {
-				$this->open_connection_mysql();
-				$result = mysql_query($query, $this->connection_mysql);
-				if (!$result) {
-					die("DateBase query failed: ".mysql_error()."<br/>".$query);	
-				}
+				die("DateBase query failed: ".mysql_error()."<br/>");
 			}
 			$this->res = $result;
 			return $this;
