@@ -1,0 +1,203 @@
+html,
+body{
+	margin: 0;
+	padding: 0;
+	font-family: Arial;
+}
+.wrapper{
+	min-width: 980px;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+header{
+	height: 150px;
+}
+footer{
+	height: 150px;
+}
+.filter{
+	padding: 0 10px;
+	border: 1px solid #aaa;
+	border-radius: 10px;
+}
+.filter div{
+	padding: 10px 0;
+	padding-left: 150px;
+}
+.filter div span{
+	display: inline-block;
+	margin: 3px;
+	padding: 3px 10px;
+	background: #ddd;
+	font-size: 10pt;
+	font-weight: bold;
+	color: #444;
+	text-shadow: 0 1px #fff;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: all .5s;
+}
+.tags-list span.active{
+	background: #6AD56A;
+	text-shadow: 0 1px #ABFDA4;
+	transition: all .5s;
+}
+.tags-list span.exclude{
+	background: #F84D4D;
+	text-shadow: 0 1px #FF9090;
+	transition: all .5s;
+}
+.order-list span.active{
+	background: #F5EE46;
+	text-shadow: 0 1px #FFFBA6;
+	transition: all .5s;
+}
+.filter div::before{
+	display: block;
+	position: absolute;
+	margin-top: 5px;
+	margin-left: -150px;
+	width: 140px;
+	font-size: 12pt;
+	font-weight: bold;
+	text-align: right;
+}
+.tags-list::before{
+	content: 'Теги:';
+}
+.order-list::before{
+	content: 'Сортировать:';
+}
+
+.filter-btn{
+	display: block;
+	width: 200px;
+	margin: 10px auto;
+	padding: 5px 20px;
+	font-size: 16pt;
+	font-weight: bold;
+	color: #fff;
+	text-shadow: 0 1px #666;
+	text-decoration: none;
+	text-align: center;
+	background: linear-gradient(#aaa, #888);
+	border-radius: 5px;
+	box-shadow: 0 1px 5px #000;
+}
+
+
+.content{
+	margin-top: 20px;
+	padding: 10px;
+	border: 1px solid #aaa;
+	border-radius: 10px;
+}
+
+.image-block{
+	display: inline-block;
+	vertical-align: top;
+	width: 200px;
+	margin: 10px;
+	padding: 5px;
+	border: 1px solid #aaa;
+}
+.image-block .img {
+	position: relative;
+	width: 200px;
+	height: 200px;
+}
+.image-info{
+	margin-bottom: 3px;
+	font-size: 8pt;
+	color: #444;
+}
+.image-date{
+	float: right;
+}
+.image-tags{
+	height: 80px;
+	margin-top: 5px;
+}
+.image-tags span{
+	display: inline-block;
+	margin: 2px 5px;
+	color: #444;
+	font-size: 10pt;
+}
+.image-like{
+	position: absolute;
+	display: none;
+	top: 5px;
+	width: 100%;
+}
+.image-block .img:hover .image-like{
+	display: block;
+}
+.like-block:hover{
+	display: block;
+}
+.image-like a{
+	display: block;
+	width: 50px;
+	height: 50px;
+	margin: 0 auto;
+	background: rgba(255,255,255,.7) url(/media/images/like_icon.png) no-repeat;
+	border-radius: 3px;
+}
+.like-block{
+	position: absolute;
+	display: none;
+	bottom: 60px;
+	padding: 10px;
+	background: #fff;
+	border-radius: 3px;
+	box-shadow: 0 5px 20px rgba(0,0,0,.9);
+}
+.like-block::before{
+	position: absolute;
+	display: block;
+	content: '';
+	bottom: -10px;
+	height: 10px;
+	width: 100%;
+}
+.like-block::after{
+	position: absolute;
+	display: block;
+	content: '';
+	bottom: -10px;
+	left: 50%;
+	margin-left: -10px;
+	border-top: 10px solid #fff;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: none;
+}
+.image-like a:hover + .like-block{
+	display: block;
+}
+.like-list{
+	max-height: 200px;
+	overflow-y: auto;
+	padding-bottom: 3px;
+	font-size: 10pt;
+	color: #444;
+	border-bottom: 1px solid #bbb;
+}
+.like-count{
+	width: 100%;
+	padding-top: 3px;
+	font-size: 10pt;
+	color: #444;
+}
+
+.pagination{
+	padding: 20px 0;
+}
+.pagination a {
+	margin: 0 5px;
+}
+.pagination span{
+	margin: 0 5px;
+	font-weight: bold;
+}
