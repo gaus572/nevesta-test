@@ -31,8 +31,8 @@
 			</div>
 
 			<div class="order-list">
-				<span data-order="like_count">По количеству лайков</span>
-				<span class="active" data-order="date">По дате добавления</span>
+				<span class="<?= isset($_GET['order']) && $_GET['order'] == 'like_count' ? 'active' : '' ?>" data-order="like_count">По количеству лайков</span>
+				<span class="<?= !isset($_GET['order']) || $_GET['order'] == 'date' ? 'active' : '' ?>" data-order="date">По дате добавления</span>
 			</div>
 
 			<a class="filter-btn" href="#">Применить</a>
@@ -42,11 +42,11 @@
 		<div class="content">
 			<div class="image-list">
 				
-				<? foreach ($images as $image) : ?>
+				<? foreach ($images as $image_id => $image) : ?>
 					<div class="image-block">
 						<div class="image-info">
 							<span class="image-user">
-								<?= $image_users[$image['user_id']] ?>
+								<?= isset($image_users[$image['user_id']]) ? $image_users[$image['user_id']] : '' ?>
 							</span>
 							<span class="image-date">
 								<?= date('d.m.Y', $image['date']) ?>
@@ -58,15 +58,15 @@
 								<a href="#"></a>
 								<div class="like-block">
 									<div class="like-list">
-										<?= !empty($image['likes']) ? implode(', ', $image['likes']) : '' ?>
+										<?= !empty($image_likes[$image_id]) ? implode(', ', $image_likes[$image_id]) : '' ?>
 									</div>
 									<span class="like-count">Понравилось: <b><?= $image['like_count'] ?></b> человек</span>
 								</div>
 							</div>
 						</div>
 						<div class="image-tags">
-							<? if (!empty($image['tags'])) foreach ($image['tags'] as $image_tag) : ?>
-								<span><?= $image_tag ?></span>
+							<? if (!empty($image_tags[$image_id])) foreach ($image_tags[$image_id] as $tag_id) : ?>
+								<span><?= $tags[$tag_id] ?></span>
 							<? endforeach ?>
 						</div>
 					</div>

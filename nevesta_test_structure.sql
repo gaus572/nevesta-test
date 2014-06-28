@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50616
 File Encoding         : 65001
 
-Date: 2014-06-26 12:04:56
+Date: 2014-06-27 17:38:20
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -37,8 +37,9 @@ CREATE TABLE `images` (
   `date` int(11) NOT NULL,
   `like_count` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `date` (`date`,`like_count`),
-  KEY `user_id` (`user_id`)
+  KEY `user_id` (`user_id`),
+  KEY `date` (`date`) USING BTREE,
+  KEY `like_count` (`like_count`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=997846 DEFAULT CHARSET=utf8;
 
 -- ----------------------------

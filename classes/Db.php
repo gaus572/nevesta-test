@@ -15,11 +15,11 @@
 			}
 			$this->connection_mysql = mysql_connect(DB_MYSQL_HOST, DB_MYSQL_USER, DB_MYSQL_PASS, TRUE);
 			if (!$this->connection_mysql) {
-				die("MYSQL DateBase connection is failed: ".mysql_error());
+				die("MYSQL DateBase connection is failed");
 			} else {
 				$db_select = mysql_select_db(DB_MYSQL_NAME);
 				if (!$db_select) {
-					die("DateBase selection is failed: ".mysql_error());
+					die("DateBase selection is failed");
 				}
 			}
 			mysql_query("set names utf8") or die("set names utf8 failed");
@@ -28,7 +28,7 @@
 		public function sql ($query) {
 			$result = @mysql_query($query, $this->connection_mysql);
 			if (!$result) {
-				die("DateBase query failed: ".mysql_error()."<br/>");
+				die("DateBase query failed");
 			}
 			$this->res = $result;
 			return $this;
